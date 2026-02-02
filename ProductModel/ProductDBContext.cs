@@ -21,7 +21,7 @@ namespace ProductModel
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             
-            var myconnectionstring = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = ProductCoreDB-2025";
+            var myconnectionstring = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = ProductCoreDB-2026";
             optionsBuilder.UseSqlServer(myconnectionstring)
               .LogTo(Console.WriteLine,
                      new[] { DbLoggerCategory.Database.Command.Name },
