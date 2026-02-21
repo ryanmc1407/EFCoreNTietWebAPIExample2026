@@ -15,4 +15,10 @@ namespace ClassLibrary1
         public float CreditRating { get; set; }
 
     }
+    // Create the view model
+    public class CustomerCreditRequest
+    {
+        public int CustomerID { get; set; }
+        public decimal OrderAmount { get; set; }
+    }
 }

@@ -15,4 +15,8 @@
     <PackageReference Include="Tracker" Version="1.0.7-beta" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
