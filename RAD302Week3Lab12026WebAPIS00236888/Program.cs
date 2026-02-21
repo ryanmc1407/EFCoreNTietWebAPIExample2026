@@ -13,7 +13,7 @@ namespace RAD302Week3Lab12026WebAPIS00236888
 
             // Add services to the container.
             builder.Services.AddDbContext<CustomerDbContext>();
-            builder.Services.AddTransient<Icustomer<Customer>, CustomerRepository>();
+            builder.Services.AddTransient<ICustomer<Customer>, CustomerRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -21,12 +21,18 @@ namespace RAD302Week3Lab12026WebAPIS00236888
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            using (var scope = app.Services.CreateScope())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                var context = scope.ServiceProvider.GetRequiredService<CustomerDbContext>();
+                context.Database.EnsureCreated();  // Creates the DB and tables automatically, stops sql translient failure
             }
+
+                // Configure the HTTP request pipeline.
+                if (app.Environment.IsDevelopment())
+                {
+                    app.UseSwagger();
+                    app.UseSwaggerUI();
+                }
 
             app.UseHttpsRedirection();
 

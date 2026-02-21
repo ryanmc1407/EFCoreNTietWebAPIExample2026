@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Interfaces
 {
-    public interface Icustomer<T>
+    public interface ICustomer<T>
     {
         IEnumerable<T> GetAll();
         T GetById(int id);

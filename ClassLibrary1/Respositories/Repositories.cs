@@ -8,7 +8,7 @@ using ClassLibrary1.Interfaces;
 
 namespace ClassLibrary1.Respositories
 {
-    public class CustomerRepository : Icustomer<Customer>
+    public class CustomerRepository : ICustomer<Customer>
     {
         private readonly CustomerDbContext _context;
 
@@ -24,17 +24,17 @@ namespace ClassLibrary1.Respositories
 
         public Customer GetById(int id)
         {
-            return _context.Customers.FirstOrDefault(c => c.Id == id);
+            return _context.Customers.FirstOrDefault(c => c.ID == id);
         }
 
         public bool CheckCustomerCredit(int customerId, decimal orderAmount)
         {
-            var customer = _context.Customers.FirstOrDefault(c => c.Id == customerId);
+            var customer = _context.Customers.FirstOrDefault(c => c.ID == customerId);
 
             if (customer == null)
                 return false;
 
-            return orderAmount <= customer.CreditRating;
+            return orderAmount <= (decimal) customer.CreditRating;
         }
     }
 }

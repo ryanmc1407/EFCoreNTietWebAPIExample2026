@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace RAD302Week3Lab12026.S00236888
- 
+
 {
     public class Program
     {
@@ -51,4 +51,5 @@ namespace RAD302Week3Lab12026.S00236888
 
             Console.WriteLine("\n new customer added:");
         }
+    }
 }
